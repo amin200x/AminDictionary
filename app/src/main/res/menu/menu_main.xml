@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.amin.amindictionary.MainActivity">
+
+    <item
+        android:id="@+id/action_exit"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:orderInCategory="2"
+        android:title="@string/action_exit"
+        app:showAsAction="always" />
+
+
+    <item
+            android:id="@+id/action_about"
+            android:title=""
+            android:icon="@android:drawable/ic_dialog_info"
+            android:orderInCategory="1"
+            app:showAsAction="always"/>
+
+    <item
+            android:id="@+id/action_pronunce"
+            android:title=""
+            android:icon="@android:drawable/ic_lock_silent_mode_off"
+            android:orderInCategory="0"
+            app:showAsAction="always"/>
+</menu>

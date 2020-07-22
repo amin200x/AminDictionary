@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Amin Dictionary</string>
+    <string name="enteraword">Enter a Word!</string>
+    <string name="action_exit">Exit</string>
+    <string name="action_pronunce"></string>
+</resources>

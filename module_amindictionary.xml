@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_amindictionary" default="compile.module.amindictionary">
+  <dirname property="module.amindictionary.basedir" file="${ant.file.module_amindictionary}"/>
+  
+  <property name="module.jdk.home.amindictionary" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.amindictionary" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.amindictionary" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.amindictionary" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="amindictionary.output.dir" value="${module.amindictionary.basedir}/build/classes/production/AminDictionary"/>
+  <property name="amindictionary.testoutput.dir" value="${module.amindictionary.basedir}/build/classes/test/AminDictionary"/>
+  
+  <path id="amindictionary.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="amindictionary.module.production.classpath">
+    <path refid="${module.jdk.classpath.amindictionary}"/>
+  </path>
+  
+  <path id="amindictionary.runtime.production.module.classpath">
+    <pathelement location="${amindictionary.output.dir}"/>
+  </path>
+  
+  <path id="amindictionary.module.classpath">
+    <path refid="${module.jdk.classpath.amindictionary}"/>
+    <pathelement location="${amindictionary.output.dir}"/>
+  </path>
+  
+  <path id="amindictionary.runtime.module.classpath">
+    <pathelement location="${amindictionary.testoutput.dir}"/>
+    <pathelement location="${amindictionary.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.amindictionary">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.amindictionary">
+    <patternset refid="excluded.from.module.amindictionary"/>
+  </patternset>
+  
+  
+  <target name="compile.module.amindictionary" depends="compile.module.amindictionary.production,compile.module.amindictionary.tests" description="Compile module AminDictionary"/>
+  
+  <target name="compile.module.amindictionary.production" depends="register.custom.compilers" description="Compile module AminDictionary; production classes"/>
+  
+  <target name="compile.module.amindictionary.tests" depends="register.custom.compilers,compile.module.amindictionary.production" description="compile module AminDictionary; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.amindictionary" description="cleanup module">
+    <delete dir="${amindictionary.output.dir}"/>
+    <delete dir="${amindictionary.testoutput.dir}"/>
+  </target>
+</project>
